@@ -1,0 +1,9 @@
+
+*.jpg
+*.pyc
+*.pth
+*.npy
+checkpoints
+pretrained
+download
+.DS_Store

@@ -1,0 +1,13 @@
+# pip install -r requirements.txt
+torch==2.1.2
+torchvision==0.16.2
+numpy>=1.18.5
+opencv-python>=4.1.2
+numpy>=1.24.0
+opencv-python>=4.1.2
+pretrainedmodels # https://github.com/Cadene/pretrained-models.pytorch
+pandas # read csv
+scipy==1.13.0
+scikit-learn
+matplotlib
+pillow==9.0.0
