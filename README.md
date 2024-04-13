@@ -15,6 +15,9 @@ If you find our work useful, please consider cite our paper:
 }
 ```
 
+### Updates
+- *2024/04/13*: The source code is first released.
+
 ### Requirements
 - Python 3 ([Anaconda](https://www.anaconda.com) installation is strongly recommended)
 - Install all Python dependencies by running: 
@@ -96,6 +99,7 @@ python train.py
 cd Deep-Face-Recognition/src
 python evaluation.py
 ```
+* where the landmarks are obtained by MTCNN face detector, and the subjects overlapped with LFW and MegaFace are removed. The csv files are provided here: []()
 
 ### Checkpoints and results
 * The original checkpoint and training log can be downloaded from here[]()
@@ -120,7 +124,7 @@ SCface results:
 |-----------------------------------------------------|--------|-------|--------|
 | Our paper                                           | 79.7%  | 95.7% | 98.2%  |
 | Re-run the original checkpoint in above environment | 78.92% | 96%   | 98.77% |
-| Reproduced checkpoint                               |        |       |        |
+| Reproduced checkpoint                               | %      | %     | %      |
 
 QMUL-SurvFace results:
 
@@ -128,6 +132,6 @@ QMUL-SurvFace results:
 |-----------------------------------------------------|--------|--------|--------|--------|--------|
 | Our paper                                           | 75.09% | 52.74% | 21.41% | 11.02% | 80.03% |
 | Re-run the original checkpoint in above environment | 75.15% | 52.21% | 21.86% | 10.49% | 80.06% |
-| Reproduced checkpoint                               |        |        |        |        |        |
+| Reproduced checkpoint                               | %      | %      | %      | %      | %      |
 
 
