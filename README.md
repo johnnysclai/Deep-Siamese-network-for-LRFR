@@ -23,14 +23,14 @@ If you find our work useful, please consider cite our paper:
 - Python 3 ([Anaconda](https://www.anaconda.com) installation is strongly recommended)
 - Install all Python dependencies by running: 
 ```
-pip install -r ./Deep-Face-Recognition/src/requirements.txt
+pip install -r ./Deep-Siamese-network-for-LRFR/src/requirements.txt
 ```
 
 ### Dataset Preparation
 * Datasets should be organized in the following form:
 ```markdown
 └──Projects
-  ├── Deep-Face-Recognition
+  ├── Deep-Siamese-network-for-LRFR
     ├── src
     │   ├── train.py
     │   ├── evaluation.py 
@@ -80,7 +80,7 @@ pip install -r ./Deep-Face-Recognition/src/requirements.txt
 
 * Preprocess the training dataset, VGGFace2, which align and resize the faces to 128x128 pixels:
 ```shell
-cd Deep-Face-Recognition/tools/VGGFace2
+cd Deep-Siamese-network-for-LRFR/tools/VGGFace2
 python vggface2_resize.py # modify the paths in the script vggface2_resize.py
 ```
  * The `loose_landmark_train_test_remove_lfw_megaface.csv` is provided [here](https://github.com/johnnysclai/Deep-Siamese-network-for-LRFR/releases/download/v1.0.0/loose_landmark_train_test_remove_lfw_megaface.csv)
@@ -90,14 +90,14 @@ python vggface2_resize.py # modify the paths in the script vggface2_resize.py
 ### Training
 * Train the model with the following command. Modify arguments in `src/arguments/train_args.py` if necessary:
 ```shell
-cd Deep-Face-Recognition/src
+cd Deep-Siamese-network-for-LRFR/src
 python train.py
 ```
 
 ### Evaluation
 * Modify the paths of pretrained model in the script `evaluation.py` and run the following command to evaluate the model:
 ```shell
-cd Deep-Face-Recognition/src
+cd Deep-Siamese-network-for-LRFR/src
 python evaluation.py
 ```
 
