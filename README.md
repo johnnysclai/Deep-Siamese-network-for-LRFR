@@ -1,6 +1,6 @@
 # Deep Siamese network for low-resolution face recognition
 
-The PyTorch implementation of [Deep Siamese network for low-resolution face recognition](https://ieeexplore.ieee.org/document/9689459).
+The official PyTorch implementation of [Deep Siamese network for low-resolution face recognition](https://ieeexplore.ieee.org/document/9689459).
 
 ### Citation
 If you find our work useful, please consider cite our paper:
@@ -16,6 +16,7 @@ If you find our work useful, please consider cite our paper:
 ```
 
 ### Updates
+- *2024/04/14*: The checkpoints and results are uploaded as v1.0.0 release.
 - *2024/04/13*: The source code is first released.
 
 ### Requirements
@@ -73,18 +74,18 @@ pip install -r ./Deep-Face-Recognition/src/requirements.txt
 ```
 - Datasets can be downloaded from the original sources:
   - [VGGFace2](https://www.robots.ox.ac.uk/~vgg/data/vgg_face2/)
+  - [LFW](http://vis-www.cs.umass.edu/lfw/)
   - [SCface](https://www.scface.org/)
   - [QMUL-SurvFace](https://qmul-survface.github.io/)
-  - [LFW](http://vis-www.cs.umass.edu/lfw/)
 
 * Preprocess the training dataset, VGGFace2, which align and resize the faces to 128x128 pixels:
 ```shell
 cd Deep-Face-Recognition/tools/VGGFace2
 python vggface2_resize.py # modify the paths in the script vggface2_resize.py
 ```
- * The `loose_landmark_train_test_remove_lfw_megaface.csv` is provided here: []()
+ * The `loose_landmark_train_test_remove_lfw_megaface.csv` is provided [here](https://github.com/johnnysclai/Deep-Siamese-network-for-LRFR/releases/download/v1.0.0/loose_landmark_train_test_remove_lfw_megaface.csv)
 
-* The testing dataset, *SCface*, will be align and resize during evaluation. The landmarks are provided in the csv files. 
+* The testing dataset, *SCface*, will be align and resize during evaluation. The landmarks are provided in the csv files in `data` folder. 
 
 ### Training
 * Train the model with the following command. Modify arguments in `src/arguments/train_args.py` if necessary:
@@ -99,39 +100,38 @@ python train.py
 cd Deep-Face-Recognition/src
 python evaluation.py
 ```
-* where the landmarks are obtained by MTCNN face detector, and the subjects overlapped with LFW and MegaFace are removed. The csv files are provided here: []()
 
 ### Checkpoints and results
-* The original checkpoint and training log can be downloaded from here[]()
-* The reproduced checkpoint and training log can be downloaded from here[]()
+* The original checkpoint and training log can be downloaded from [here](https://github.com/johnnysclai/Deep-Siamese-network-for-LRFR/releases/download/v1.0.0/original_paper_checkpoint.zip)
+* The reproduced checkpoint and training log can be downloaded from [here](https://github.com/johnnysclai/Deep-Siamese-network-for-LRFR/releases/download/v1.0.0/v1.0.0-reproduced_checkpotin.zip)
 
 **Note**: 
 - You may not obtain the same results as reported in the paper because the OS, hardware, and library version may vary.
 - The training code and evaluation code in this repo is slightly different from the original code used in the paper, but the parameters setting are the same.
-- The reproduced results are obtained by using the environment with Ubuntu 22.04.3 LTS, Python 3.10.12, and the library versions in `requirements.txt`.
+- The reproduced results are obtained by using the environment with Ubuntu 22.04.3 LTS, Python 3.10.12, PyTorch 2.1.1 with Cuda 12.1, and other libraries in `requirements.txt`.
 
 LFW results (HR-to-LR setting):
 
-|                                                     | 8 x 8  | 12 x 12 | 16 x 16 | 20 x 20 | 128x128 |
-|-----------------------------------------------------|--------|---------|---------|---------|---------|
-| Our paper                                           | 94.8%  | 97.6%   | 98.2%   | 98.1%   | 99.1%   |
-| Re-run the original checkpoint in above environment | 83.53% | 94.20%  | 97.23%  | 98.37%  | 99.08%  |
-| Reproduced checkpoint                               | %      | %       | %       | %       | %       |
+|                                                    | 8 x 8  | 12 x 12 | 16 x 16 | 20 x 20 | 128x128 |
+|----------------------------------------------------|--------|---------|---------|---------|---------|
+| Reported in our paper                              | 94.8%  | 97.6%   | 98.2%   | 98.1%   | 99.1%   |
+| Re-run the paper's checkpoint in above environment | 83.53% | 94.20%  | 97.23%  | 98.37%  | 99.08%  |
+| Reproduced checkpoint                              | 96.27% | 98.15%  | 98.67%  | 98.62%  | 98.67%  |
 
 SCface results:
 
-|                                                     | d1     | d2    | d3     |
-|-----------------------------------------------------|--------|-------|--------|
-| Our paper                                           | 79.7%  | 95.7% | 98.2%  |
-| Re-run the original checkpoint in above environment | 78.92% | 96%   | 98.77% |
-| Reproduced checkpoint                               | %      | %     | %      |
+|                                                    | d1     | d2     | d3     |
+|----------------------------------------------------|--------|--------|--------|
+| Reported in our paper                              | 79.7%  | 95.7%  | 98.2%  |
+| Re-run the paper's checkpoint in above environment | 78.92% | 96%    | 98.77% |
+| Reproduced checkpoint                              | 79.85% | 96.62% | 98.15% |
 
 QMUL-SurvFace results:
 
-| Method                                              | 30%    | 10%    | 1%     | 0.1%   | AUC    |
-|-----------------------------------------------------|--------|--------|--------|--------|--------|
-| Our paper                                           | 75.09% | 52.74% | 21.41% | 11.02% | 80.03% |
-| Re-run the original checkpoint in above environment | 75.15% | 52.21% | 21.86% | 10.49% | 80.06% |
-| Reproduced checkpoint                               | %      | %      | %      | %      | %      |
+| Method                                             | 30%    | 10%    | 1%     | 0.1%   | AUC    |
+|----------------------------------------------------|--------|--------|--------|--------|--------|
+| Reported in our paper                              | 75.09% | 52.74% | 21.41% | 11.02% | 80.03% |
+| Re-run the paper's checkpoint in above environment | 75.15% | 52.41% | 21.86% | 10.49% | 80.06% |
+| Reproduced checkpoint                              | 77.56% | 56.37% | 28.71% | 11.88% | 82.17% |
 
-
+* All the above results are used a backbone of a 20-layer ResNet, same as SphereFace, which has approximately 28M parameters, and trained with VGGFace2 dataset.
