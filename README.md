@@ -1,9 +1,9 @@
 # Deep Siamese network for low-resolution face recognition
 
-PyTorch implementation of [Deep Siamese network for low-resolution face recognition](https://ieeexplore.ieee.org/document/9689459).
+The PyTorch implementation of [Deep Siamese network for low-resolution face recognition](https://ieeexplore.ieee.org/document/9689459).
 
 ### Citation
-If you find this work useful for your research, please consider cite our paper:
+If you find our work useful, please consider cite our paper:
 ```
 @inproceedings{lai2021deep,
   title={Deep Siamese network for low-resolution face recognition},
@@ -16,14 +16,15 @@ If you find this work useful for your research, please consider cite our paper:
 ```
 
 ### Requirements
-- Python >= 3.8 ([Anaconda](https://www.anaconda.com) installation is recommended)
-- Pytorch: https://pytorch.org/get-started/previous-versions/
-- Other dependencies can be installed by running: `pip install -r ./Deep-Face-Recognition/src/requirements.txt`
+- Python 3 ([Anaconda](https://www.anaconda.com) installation is strongly recommended)
+- Install all Python dependencies by running: 
+```
+pip install -r ./Deep-Face-Recognition/src/requirements.txt
+```
 
 ### Dataset Preparation
 * Datasets should be organized in the following form:
 ```markdown
-# Download training datasets (where the faces are aligned) and organize it into the following form:
 └──Projects
   ├── Deep-Face-Recognition
     ├── src
@@ -67,14 +68,18 @@ If you find this work useful for your research, please consider cite our paper:
     │   │   ├── ...
     ├── ...
 ```
+- Datasets can be downloaded from the original sources:
+  - [VGGFace2](https://www.robots.ox.ac.uk/~vgg/data/vgg_face2/)
+  - [SCface](https://www.scface.org/)
+  - [QMUL-SurvFace](https://qmul-survface.github.io/)
+  - [LFW](http://vis-www.cs.umass.edu/lfw/)
 
-* Preprocess the training dataset, *VGGFace2* as mentioned in the paper, which align and resize the faces to 128x128 pixels:
+* Preprocess the training dataset, VGGFace2, which align and resize the faces to 128x128 pixels:
 ```shell
 cd Deep-Face-Recognition/tools/VGGFace2
 python vggface2_resize.py # modify the paths in the script vggface2_resize.py
 ```
-The `loose_landmark_train_test_remove_lfw_megaface.csv` is provided here: []
-
+ * The `loose_landmark_train_test_remove_lfw_megaface.csv` is provided here: []()
 
 * The testing dataset, *SCface*, will be align and resize during evaluation. The landmarks are provided in the csv files. 
 
@@ -86,7 +91,43 @@ python train.py
 ```
 
 ### Evaluation
+* Modify the paths of pretrained model in the script `evaluation.py` and run the following command to evaluate the model:
 ```shell
 cd Deep-Face-Recognition/src
-python evaluation.py # modify the paths in the script evaluation.py
+python evaluation.py
 ```
+
+### Checkpoints and results
+* The original checkpoint and training log can be downloaded from here[]()
+* The reproduced checkpoint and training log can be downloaded from here[]()
+
+**Note**: 
+- You may not obtain the same results as reported in the paper because the OS, hardware, and library version may vary.
+- The training code and evaluation code in this repo is slightly different from the original code used in the paper, but the parameters setting are the same.
+- The reproduced results are obtained by using the environment with Ubuntu 22.04.3 LTS, Python 3.10.12, and the library versions in `requirements.txt`.
+
+LFW results (HR-to-LR setting):
+
+|                                                     | 8 x 8  | 12 x 12 | 16 x 16 | 20 x 20 | 128x128 |
+|-----------------------------------------------------|--------|---------|---------|---------|---------|
+| Our paper                                           | 94.8%  | 97.6%   | 98.2%   | 98.1%   | 99.1%   |
+| Re-run the original checkpoint in above environment | 83.53% | 94.20%  | 97.23%  | 98.37%  | 99.08%  |
+| Reproduced checkpoint                               | %      | %       | %       | %       | %       |
+
+SCface results:
+
+|                                                     | d1     | d2    | d3     |
+|-----------------------------------------------------|--------|-------|--------|
+| Our paper                                           | 79.7%  | 95.7% | 98.2%  |
+| Re-run the original checkpoint in above environment | 78.92% | 96%   | 98.77% |
+| Reproduced checkpoint                               |        |       |        |
+
+QMUL-SurvFace results:
+
+| Method                                              | 30%    | 10%    | 1%     | 0.1%   | AUC    |
+|-----------------------------------------------------|--------|--------|--------|--------|--------|
+| Our paper                                           | 75.09% | 52.74% | 21.41% | 11.02% | 80.03% |
+| Re-run the original checkpoint in above environment | 75.15% | 52.21% | 21.86% | 10.49% | 80.06% |
+| Reproduced checkpoint                               |        |        |        |        |        |
+
+
