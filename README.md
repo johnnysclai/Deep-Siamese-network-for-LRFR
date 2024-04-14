@@ -16,7 +16,7 @@ If you find our work useful, please consider cite our paper:
 ```
 
 ### Updates
-- *2024/04/14*: The checkpoints and results are uploaded as v1.0.0 release.
+- *2024/04/14*: The checkpoints and results of the original paper and reproduced by this repo are uploaded as v1.0.0 release.
 - *2024/04/13*: The source code is first released.
 
 ### Requirements
@@ -101,9 +101,11 @@ cd Deep-Siamese-network-for-LRFR/src
 python evaluation.py
 ```
 
-### Checkpoints and results
-* The original checkpoint and training log can be downloaded from [here](https://github.com/johnnysclai/Deep-Siamese-network-for-LRFR/releases/download/v1.0.0/original_paper_checkpoint.zip)
-* The reproduced checkpoint and training log can be downloaded from [here](https://github.com/johnnysclai/Deep-Siamese-network-for-LRFR/releases/download/v1.0.0/v1.0.0-reproduced_checkpotin.zip)
+### Checkpoints and results1
+1. The original checkpoint and training log can be downloaded from [here](https://github.com/johnnysclai/Deep-Siamese-network-for-LRFR/releases/download/v1.0.0/original_paper_checkpoint.zip)
+2. The reproduced checkpoint and training log can be downloaded from [here](https://github.com/johnnysclai/Deep-Siamese-network-for-LRFR/releases/download/v1.0.0/v1.0.0-reproduced_checkpoint.zip)
+3. IR-50 checkpoint and training log is coming soon.
+4. IR-101 checkpoint and training log is coming soon.
 
 **Note**: 
 - You may not obtain the same results as reported in the paper because the OS, hardware, and library version may vary.
@@ -116,7 +118,9 @@ LFW results (HR-to-LR setting):
 |----------------------------------------------------|--------|---------|---------|---------|---------|
 | Reported in our paper                              | 94.8%  | 97.6%   | 98.2%   | 98.1%   | 99.1%   |
 | Re-run the paper's checkpoint in above environment | 83.53% | 94.20%  | 97.23%  | 98.37%  | 99.08%  |
-| Reproduced checkpoint                              | 96.27% | 98.15%  | 98.67%  | 98.62%  | 98.67%  |
+| Reproduced result                                  | 96.27% | 98.15%  | 98.67%  | 98.62%  | 98.67%  |
+| IR-50 result                                       | %      | %       | %       | %       | %       |
+| IR-101 result                                      | %      | %       | %       | %       | %       |
 
 SCface results:
 
@@ -124,7 +128,9 @@ SCface results:
 |----------------------------------------------------|--------|--------|--------|
 | Reported in our paper                              | 79.7%  | 95.7%  | 98.2%  |
 | Re-run the paper's checkpoint in above environment | 78.92% | 96%    | 98.77% |
-| Reproduced checkpoint                              | 79.85% | 96.62% | 98.15% |
+| Reproduced result                                  | 79.85% | 96.62% | 98.15% |
+| IR-50 result                                       | %      | %      | %      |
+| IR-101 result                                      | %      | %      | %      |
 
 QMUL-SurvFace results:
 
@@ -133,5 +139,8 @@ QMUL-SurvFace results:
 | Reported in our paper                              | 75.09% | 52.74% | 21.41% | 11.02% | 80.03% |
 | Re-run the paper's checkpoint in above environment | 75.15% | 52.41% | 21.86% | 10.49% | 80.06% |
 | Reproduced checkpoint                              | 77.56% | 56.37% | 28.71% | 11.88% | 82.17% |
+| IR-50 result                                       | %      | %      | %      | %      | %      |
+| IR-101 result                                      | %      | %      | %      | %      | %      |
 
-* All the above results are used a backbone of a 20-layer ResNet, same as SphereFace, which has approximately 28M parameters, and trained with VGGFace2 dataset.
+* The model in *our paper* and *reproduced checkpoint* are used a backbone of a 20-layers ResNet, same as [SphereFace paper](https://github.com/wy1iu/sphereface), which has approximately 28M parameters, and trained with VGGFace2 dataset.
+* IR-50, IR-101 are the models with a backbone of 50-layers or 101-layers ResNet, same as [ArcFace paper](https://github.com/deepinsight/insightface), which is borrowed from [face.evoLVe repo](https://github.com/ZhaoJ9014/face.evoLVe)

@@ -26,16 +26,10 @@ class CreateLearner(nn.Module):
 			                                               args.use_dropout)
 		elif 'ResNet' in args.backbone:
 			self.backbone = getattr(model_resnet, args.backbone)((128, 128))
-		else:
+		elif 'IR' in args.backbone:
 			self.backbone = getattr(model_irse, args.backbone)((128, 128))
-		# if self.args.multi and self.args.lambda_dist > 0.:
-		# 	checkpoint = '../checkpoints/paper/20200928-174452_vggface2_spherenet20_amsoftmax_celoss_multi_triplet_dist1.0/0100000_net_backbone.pth'
-		# elif self.args.multi:
-		# 	checkpoint = '../checkpoints/paper/20200924-120044_vggface2_spherenet20_amsoftmax_celoss_multi/0100000_net_backbone.pth'
-		# else:
-		# 	checkpoint = '../checkpoints/paper/20200525-161318_vggface2_spherenet20_amsoftmax_celoss/0100000_net_backbone.pth'
-		# self.backbone.load_state_dict(torch.load(checkpoint))
-		# print('{} is loaded.'.format(checkpoint))
+		else:
+			raise NotImplementedError('Backbone model [{:s}] is not found'.format(args.backbone))
 		self.backbone.to(self.device)
 
 	def train_setup(self, class_num):
