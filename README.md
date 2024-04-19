@@ -78,7 +78,7 @@ pip install -r ./Deep-Siamese-network-for-LRFR/src/requirements.txt
   - [SCface](https://www.scface.org/)
   - [QMUL-SurvFace](https://qmul-survface.github.io/)
 
-* Preprocess the training dataset, VGGFace2, which align and resize the faces to 128x128 pixels:
+* Preprocess the training dataset, VGGFace2, which will align and resize the faces to 128x128 pixels:
 ```shell
 cd Deep-Siamese-network-for-LRFR/tools/VGGFace2
 python vggface2_resize.py # modify the paths in the script vggface2_resize.py
@@ -101,16 +101,14 @@ cd Deep-Siamese-network-for-LRFR/src
 python evaluation.py
 ```
 
-### Checkpoints and results1
+### Checkpoints and results
 1. The original checkpoint and training log can be downloaded from [here](https://github.com/johnnysclai/Deep-Siamese-network-for-LRFR/releases/download/v1.0.0/original_paper_checkpoint.zip)
 2. The reproduced checkpoint and training log can be downloaded from [here](https://github.com/johnnysclai/Deep-Siamese-network-for-LRFR/releases/download/v1.0.0/v1.0.0-reproduced_checkpoint.zip)
-3. IR-50 checkpoint and training log is coming soon.
-4. IR-101 checkpoint and training log is coming soon.
 
 **Note**: 
 - You may not obtain the same results as reported in the paper because the OS, hardware, and library version may vary.
 - The training code and evaluation code in this repo is slightly different from the original code used in the paper, but the parameters setting are the same.
-- The reproduced results are obtained by using the environment with Ubuntu 22.04.3 LTS, Python 3.10.12, PyTorch 2.1.1 with Cuda 12.1, and other libraries in `requirements.txt`.
+- The reproduced results are obtained by using the environment with Ubuntu 22.04.3 LTS, Python 3.10.12, PyTorch 2.1.2 with Cuda 12.1, and other libraries in `requirements.txt`.
 
 LFW results (HR-to-LR setting):
 
@@ -119,8 +117,6 @@ LFW results (HR-to-LR setting):
 | Reported in our paper                              | 94.8%  | 97.6%   | 98.2%   | 98.1%   | 99.1%   |
 | Re-run the paper's checkpoint in above environment | 83.53% | 94.20%  | 97.23%  | 98.37%  | 99.08%  |
 | Reproduced result                                  | 96.27% | 98.15%  | 98.67%  | 98.62%  | 98.67%  |
-| IR-50 result                                       | %      | %       | %       | %       | %       |
-| IR-101 result                                      | %      | %       | %       | %       | %       |
 
 SCface results:
 
@@ -129,8 +125,6 @@ SCface results:
 | Reported in our paper                              | 79.7%  | 95.7%  | 98.2%  |
 | Re-run the paper's checkpoint in above environment | 78.92% | 96%    | 98.77% |
 | Reproduced result                                  | 79.85% | 96.62% | 98.15% |
-| IR-50 result                                       | %      | %      | %      |
-| IR-101 result                                      | %      | %      | %      |
 
 QMUL-SurvFace results:
 
@@ -139,8 +133,5 @@ QMUL-SurvFace results:
 | Reported in our paper                              | 75.09% | 52.74% | 21.41% | 11.02% | 80.03% |
 | Re-run the paper's checkpoint in above environment | 75.15% | 52.41% | 21.86% | 10.49% | 80.06% |
 | Reproduced checkpoint                              | 77.56% | 56.37% | 28.71% | 11.88% | 82.17% |
-| IR-50 result                                       | %      | %      | %      | %      | %      |
-| IR-101 result                                      | %      | %      | %      | %      | %      |
 
 * The model in *our paper* and *reproduced checkpoint* are used a backbone of a 20-layers ResNet, same as [SphereFace paper](https://github.com/wy1iu/sphereface), which has approximately 28M parameters, and trained with VGGFace2 dataset.
-* IR-50, IR-101 are the models with a backbone of 50-layers or 101-layers ResNet, same as [ArcFace paper](https://github.com/deepinsight/insightface), which is borrowed from [face.evoLVe repo](https://github.com/ZhaoJ9014/face.evoLVe)
